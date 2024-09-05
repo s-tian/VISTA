@@ -1,0 +1,1 @@
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_2/arc_90deg/coffee/orig.json

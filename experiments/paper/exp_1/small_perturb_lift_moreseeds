@@ -1,0 +1,11 @@
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/deproj_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/deproj_seed_3.json
+
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/orig_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/orig_seed_3.json
+
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/sim_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/sim_seed_3.json
+
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/nvs_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/nvs_seed_3.json

@@ -1,0 +1,203 @@
+{
+    "algo_name": "cql",
+    "experiment": {
+        "name": "subopt_cql_square_mh_worse_better_image",
+        "validate": true,
+        "logging": {
+            "terminal_output_to_txt": true,
+            "log_tb": true,
+            "log_wandb": false,
+            "wandb_proj_name": "debug"
+        },
+        "save": {
+            "enabled": true,
+            "every_n_seconds": null,
+            "every_n_epochs": 20,
+            "epochs": [],
+            "on_best_validation": false,
+            "on_best_rollout_return": false,
+            "on_best_rollout_success_rate": true
+        },
+        "epoch_every_n_steps": 500,
+        "validation_epoch_every_n_steps": 50,
+        "env": null,
+        "additional_envs": null,
+        "render": false,
+        "render_video": true,
+        "keep_all_videos": false,
+        "video_skip": 5,
+        "rollout": {
+            "enabled": true,
+            "n": 50,
+            "horizon": 500,
+            "rate": 20,
+            "warmstart": 0,
+            "terminate_on_success": true
+        }
+    },
+    "train": {
+        "data": "vista/robomimic/robomimic/../datasets/square/mh/image_v141.hdf5",
+        "output_dir": "../../experiment_results/subopt/cql/square/mh/worse_better/image/trained_models",
+        "num_data_workers": 2,
+        "hdf5_cache_mode": "low_dim",
+        "hdf5_use_swmr": true,
+        "hdf5_load_next_obs": true,
+        "hdf5_normalize_obs": false,
+        "hdf5_filter_key": "worse_better_train",
+        "hdf5_validation_filter_key": "worse_better_valid",
+        "seq_length": 1,
+        "pad_seq_length": true,
+        "frame_stack": 1,
+        "pad_frame_stack": true,
+        "dataset_keys": [
+            "actions",
+            "rewards",
+            "dones"
+        ],
+        "goal_mode": null,
+        "cuda": true,
+        "batch_size": 8,
+        "num_epochs": 600,
+        "seed": 1
+    },
+    "algo": {
+        "optim_params": {
+            "critic": {
+                "learning_rate": {
+                    "initial": 0.001,
+                    "decay_factor": 0.0,
+                    "epoch_schedule": []
+                },
+                "regularization": {
+                    "L2": 0.0
+                }
+            },
+            "actor": {
+                "learning_rate": {
+                    "initial": 0.0001,
+                    "decay_factor": 0.0,
+                    "epoch_schedule": []
+                },
+                "regularization": {
+                    "L2": 0.0
+                }
+            }
+        },
+        "discount": 0.99,
+        "n_step": 1,
+        "target_tau": 0.005,
+        "actor": {
+            "bc_start_steps": 0,
+            "target_entropy": "default",
+            "max_gradient_norm": null,
+            "net": {
+                "type": "gaussian",
+                "common": {
+                    "std_activation": "exp",
+                    "use_tanh": true,
+                    "low_noise_eval": true
+                },
+                "gaussian": {
+                    "init_last_fc_weight": 0.001,
+                    "init_std": 0.3,
+                    "fixed_std": false
+                }
+            },
+            "layer_dims": [
+                300,
+                400
+            ]
+        },
+        "critic": {
+            "use_huber": false,
+            "max_gradient_norm": null,
+            "value_bounds": null,
+            "num_action_samples": 1,
+            "cql_weight": 1.0,
+            "deterministic_backup": true,
+            "min_q_weight": 1.0,
+            "target_q_gap": 5.0,
+            "num_random_actions": 10,
+            "ensemble": {
+                "n": 2
+            },
+            "layer_dims": [
+                300,
+                400
+            ]
+        }
+    },
+    "observation": {
+        "modalities": {
+            "obs": {
+                "low_dim": [
+                    "robot0_eef_pos",
+                    "robot0_eef_quat",
+                    "robot0_gripper_qpos"
+                ],
+                "rgb": [
+                    "agentview_image",
+                    "robot0_eye_in_hand_image"
+                ],
+                "depth": [],
+                "scan": []
+            },
+            "goal": {
+                "low_dim": [],
+                "rgb": [],
+                "depth": [],
+                "scan": []
+            }
+        },
+        "encoder": {
+            "low_dim": {
+                "core_class": null,
+                "core_kwargs": {},
+                "obs_randomizer_class": null,
+                "obs_randomizer_kwargs": {}
+            },
+            "rgb": {
+                "core_class": "VisualCore",
+                "core_kwargs": {
+                    "feature_dimension": 64,
+                    "backbone_class": "ResNet18Conv",
+                    "backbone_kwargs": {
+                        "pretrained": false,
+                        "input_coord_conv": false
+                    },
+                    "pool_class": "SpatialSoftmax",
+                    "pool_kwargs": {
+                        "num_kp": 32,
+                        "learnable_temperature": false,
+                        "temperature": 1.0,
+                        "noise_std": 0.0
+                    }
+                },
+                "obs_randomizer_class": "CropRandomizer",
+                "obs_randomizer_kwargs": {
+                    "crop_height": 76,
+                    "crop_width": 76,
+                    "num_crops": 1,
+                    "pos_enc": false
+                }
+            },
+            "depth": {
+                "core_class": "VisualCore",
+                "core_kwargs": {},
+                "obs_randomizer_class": null,
+                "obs_randomizer_kwargs": {}
+            },
+            "scan": {
+                "core_class": "ScanCore",
+                "core_kwargs": {},
+                "obs_randomizer_class": null,
+                "obs_randomizer_kwargs": {}
+            }
+        }
+    },
+    "meta": {
+        "hp_base_config_file": null,
+        "hp_keys": [],
+        "hp_values": []
+    }
+}

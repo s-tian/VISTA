@@ -1,0 +1,11 @@
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/deproj_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/deproj_seed_3.json
+
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/orig_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/orig_seed_3.json
+
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/sim_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/sim_seed_3.json
+
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/nvs_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/threading/nvs_seed_3.json

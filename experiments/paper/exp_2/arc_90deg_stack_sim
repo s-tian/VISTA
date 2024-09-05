@@ -1,0 +1,7 @@
+{
+python dataset_states_to_obs_zeronvs.py --dataset ../../../mimicgen_environments/datasets/vista/exp_2/arc_90deg/stack/image_200.hdf5 --output_name random_cam_sim.hdf5  --done_mode 2 --randomize_cam_range arc_90deg --camera_names agentview robot0_eye_in_hand --camera_height 84 --camera_width 84 --compress --exclude-next-obs --randomize_cam --parse-iters 1 --camera_randomization_type sim 
+}
+->
+{
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_2/arc_90deg/stack/sim.json
+}

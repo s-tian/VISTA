@@ -1,0 +1,2 @@
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/square/pixelnerf_seed_2.json
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/square/pixelnerf_seed_3.json

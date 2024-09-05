@@ -1,0 +1,14 @@
+{
+python dataset_states_to_obs_zeronvs.py --dataset ../../../mimicgen_environments/datasets/vista/exp_1/small_perturb/lift/low_dim_v141.hdf5 --output_name random_cam_pixelnerf.hdf5  --done_mode 2 --randomize_cam_range small_perturb --camera_names agentview robot0_eye_in_hand --camera_height 84 --camera_width 84 --compress --exclude-next-obs --randomize_cam --parse-iters 1 --camera_randomization_type pixelnerf --n 50 --start-idx 0
+python dataset_states_to_obs_zeronvs.py --dataset ../../../mimicgen_environments/datasets/vista/exp_1/small_perturb/lift/low_dim_v141.hdf5 --output_name random_cam_pixelnerf.hdf5  --done_mode 2 --randomize_cam_range small_perturb --camera_names agentview robot0_eye_in_hand --camera_height 84 --camera_width 84 --compress --exclude-next-obs --randomize_cam --parse-iters 1 --camera_randomization_type pixelnerf --n 50 --start-idx 50 
+python dataset_states_to_obs_zeronvs.py --dataset ../../../mimicgen_environments/datasets/vista/exp_1/small_perturb/lift/low_dim_v141.hdf5 --output_name random_cam_pixelnerf.hdf5  --done_mode 2 --randomize_cam_range small_perturb --camera_names agentview robot0_eye_in_hand --camera_height 84 --camera_width 84 --compress --exclude-next-obs --randomize_cam --parse-iters 1 --camera_randomization_type pixelnerf --n 50 --start-idx 100 
+python dataset_states_to_obs_zeronvs.py --dataset ../../../mimicgen_environments/datasets/vista/exp_1/small_perturb/lift/low_dim_v141.hdf5 --output_name random_cam_pixelnerf.hdf5  --done_mode 2 --randomize_cam_range small_perturb --camera_names agentview robot0_eye_in_hand --camera_height 84 --camera_width 84 --compress --exclude-next-obs --randomize_cam --parse-iters 1 --camera_randomization_type pixelnerf --n 50 --start-idx 150 
+}
+->
+{
+python merge_hdf5.py --input_files ../../../mimicgen_environments/datasets/vista/exp_1/small_perturb/lift/random_cam_pixelnerf* --output_file ../../../mimicgen_environments/datasets/vista/exp_1/small_perturb/lift/random_cam_pixelnerf.hdf5
+}
+->
+{
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/lift/pixelnerf.json
+}

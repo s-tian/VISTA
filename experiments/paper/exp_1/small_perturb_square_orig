@@ -1,0 +1,7 @@
+{
+python dataset_states_to_obs.py --dataset ../../datasets/square/ph/low_dim_v141.hdf5 --output_name image.hdf5  --done_mode 2 --camera_names agentview robot0_eye_in_hand --camera_height 84 --camera_width 84 --compress --exclude-next-obs
+}
+->
+{
+python vista/robomimic/robomimic/scripts/train.py --config vista/robomimic/robomimic/exps/vista/exp_1/small_perturb/square/orig.json
+}
