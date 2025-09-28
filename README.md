@@ -49,7 +49,7 @@ I've dumped the output of `pip list` and `mamba list` for working environment to
 Note that this environment is not used for the reprojection baseline due to conflicts with Pytorch3D. To create that environment, follow the same steps but do not install ZeroNVS, instead install `pytorch3d==0.7.4`.
 
 ## Pretrained models
-Pretrained ZeroNVS models are available on HuggingFace here: https://huggingface.co/s-tian/VISTA_Data/tree/main/models.
+Pretrained ZeroNVS models are available on HuggingFace here: https://huggingface.co/datasets/s-tian/VISTA_Data/tree/main/models.
 To use them, download the models and config file, and then set the constants in `vipl/vipl/utils/constants.py` to point to the downloaded models and config on your local machine. 
 
 ## Running experiments
@@ -61,7 +61,7 @@ The general workflow of running simulated experiments is:
 ### 1. Downloading source datasets
 The source datasets for this project are directly obtained from robomimic and mimicgen_environments. The source datasets are converted to augmented datasets using the models, e.g. zeronvs, offline. Each source dataset was originally obtained from the download scripts in robomimic or mimicgen_environments. 
 
-For convenience, we have uploaded the source datasets to HuggingFace here: https://huggingface.co/datasets/s-tian/VISTA_Data.
+For convenience, we have uploaded the source datasets to HuggingFace here: https://huggingface.co/datasets/s-tian/VISTA_Data/tree/main.
 
 ### 2. Converting source datasets to potentially augmented datasets
 Conversion can be done by running the dataset_states_to_obs_zeronvs.py script in the provided robomimic package. For instance, let's look at the experiment in `experiments/paper/exp_1/small_perturb_lift_zeronvs`:
